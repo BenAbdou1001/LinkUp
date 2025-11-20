@@ -94,18 +94,19 @@ const MeetingTypeList = () => {
           handleClick={createMeeting}
         >
           <div className="flex flex-col gap-2.5">
-            <label className="text-base font-normal leading-[22.4px] text-sky-2">
+            <label className="text-sm font-semibold leading-tight text-sky/80 uppercase tracking-wide">
               Add a description
             </label>
             <Textarea
-              className="border-none bg-[#252A41] rounded-md focus-visible:ring-0 focus-visible:ring-offset-0"
+              placeholder="What's this meeting about?"
+              className="border-none bg-sidenav-background/80 focus-visible:ring-0 focus-visible:ring-offset-0"
               onChange={(e) =>
                 setValues({ ...values, description: e.target.value })
               }
             />
           </div>
           <div className="flex w-full flex-col gap-2.5">
-            <label className="text-base font-normal leading-[22.4px] text-sky-2">
+            <label className="text-sm font-semibold leading-tight text-sky/80 uppercase tracking-wide">
               Select Date and Time
             </label>
             <ReactDatePicker
@@ -116,7 +117,7 @@ const MeetingTypeList = () => {
               timeIntervals={15}
               timeCaption="time"
               dateFormat="MMMM d, yyyy h:mm aa"
-              className="w-full rounded bg-[#252A41] rounded-md p-2 focus:outline-none"
+              className="w-full rounded-xl bg-sidenav-background/80 border-2 border-white/10 px-4 py-3 focus:outline-none focus:border-blue/50 focus:ring-4 focus:ring-blue/20 transition-all duration-300"
             />
           </div>
         </MeetingModal>
@@ -127,7 +128,9 @@ const MeetingTypeList = () => {
           title="Meeting Created"
           handleClick={() => {
             navigator.clipboard.writeText(meetingLink);
-            toast.success('Link Copied');
+            toast.success('Link Copied!', {
+              description: 'Meeting link has been copied to your clipboard'
+            });
           }}
           image={'/icons/checked.svg'}
           buttonIcon="/icons/copy.svg"
@@ -144,9 +147,9 @@ const MeetingTypeList = () => {
         handleClick={() => router.push(values.link)}
       >
         <Input
-          placeholder="Meeting link"
+          placeholder="Enter meeting link..."
           onChange={(e) => setValues({ ...values, link: e.target.value })}
-          className="border-none bg-[#252A41] focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="border-none bg-sidenav-background/80 focus-visible:ring-0 focus-visible:ring-offset-0"
         />
       </MeetingModal>
 

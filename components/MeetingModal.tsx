@@ -37,34 +37,43 @@ const MeetingModal = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose} modal={true}>
       <DialogTitle></DialogTitle>
-      <DialogContent className="flex w-full max-w-[520px] flex-col gap-6 border-none bg-background px-6 py-9 text-white">
-        <div className="flex flex-col gap-6">
+      <DialogContent className="flex w-full max-w-[560px] flex-col gap-6 border border-white/10 bg-gradient-to-br from-sidenav-background via-background to-sidenav-background/80 px-8 py-10 text-white shadow-2xl backdrop-blur-xl">
+        {/* Decorative gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue/5 via-purple/5 to-transparent pointer-events-none rounded-lg" />
+        
+        <div className="relative flex flex-col gap-6 animate-fade-in">
           {image && (
-            <div className="flex justify-center">
-              <Image src={image} alt="checked" width={72} height={72} />
+            <div className="flex justify-center animate-scale-in">
+              <div className="p-4 rounded-full bg-gradient-to-br from-blue/20 to-purple/20 border border-white/10">
+                <Image src={image} alt="checked" width={72} height={72} />
+              </div>
             </div>
           )}
-          <h1 className={cn("text-3xl font-bold leading-[42px]", className)}>
+          <h1 className={cn("text-3xl font-bold leading-tight bg-gradient-to-r from-white to-sky bg-clip-text text-transparent", className)}>
             {title}
           </h1>
-          {children}
+          {children && (
+            <div className="space-y-4">
+              {children}
+            </div>
+          )}
           <Button
-            className={
-              "bg-foreground focus-visible:ring-0 focus-visible:ring-offset-0 text-background hover:bg-foreground/90 "
-            }
-              style={{ pointerEvents: 'auto' }} // Force pointer events
+            className="relative group bg-gradient-to-r from-blue to-blue/80 hover:from-blue/90 hover:to-blue/70 text-white font-semibold py-6 text-base rounded-xl shadow-xl hover:shadow-blue/50 transition-all duration-300 hover:scale-105 overflow-hidden focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            style={{ pointerEvents: 'auto' }}
             onClick={handleClick}
           >
-            {buttonIcon && (
-              <Image
-                src={buttonIcon}
-                alt="button icon"
-                width={13}
-                height={13}
-              />
-            )}{" "}
-            &nbsp;
-            {buttonText || "Schedule Meeting"}
+            <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+            <span className="relative flex items-center justify-center gap-2">
+              {buttonIcon && (
+                <Image
+                  src={buttonIcon}
+                  alt="button icon"
+                  width={16}
+                  height={16}
+                />
+              )}
+              {buttonText || "Schedule Meeting"}
+            </span>
           </Button>
         </div>
       </DialogContent>

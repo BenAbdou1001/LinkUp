@@ -10,6 +10,131 @@
   -webkit-backdrop-filter: blur(4px);
 }
 
+.glassmorphism-enhanced {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.animate-slide-down {
+  animation: slide-down 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+
+/* ==== Stream.io participants list styling ===== */
+
+.participants-list-container {
+  @apply bg-gradient-to-b from-transparent to-sidenav-background/50;
+}
+
+/* Style the participant items */
+.participants-list-container [data-testid="participant-view"] {
+  @apply rounded-lg mx-2 my-1 overflow-hidden border border-white/5 bg-white/5 transition-all duration-200 hover:bg-white/10 hover:border-white/10;
+}
+
+.participants-list-container [data-testid="participant-view"]:first-child {
+  @apply mt-2;
+}
+
+.participants-list-container [data-testid="participant-view"]:last-child {
+  @apply mb-2;
+}
+
+/* Style participant names and info */
+.participants-list-container .str-video__participant-details {
+  @apply px-3 py-2;
+}
+
+.participants-list-container .str-video__participant-details__name {
+  @apply font-medium text-sm;
+}
+
+/* Style video tiles in participants list */
+.participants-list-container .str-video__participant-view {
+  @apply rounded-lg;
+}
+
 /* ==== clerk class override ===== */
 
 .cl-userButtonPopoverActionButtonIcon {
