@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import Meeting from '../meeting/[id]/page';
 import MeetingTypeList from '@/components/MeetingTypeList';
 
 

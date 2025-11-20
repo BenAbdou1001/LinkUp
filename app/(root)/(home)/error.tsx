@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
 
 export default function Error({
   error,
@@ -50,7 +49,7 @@ export default function Error({
             Oops! Something went wrong
           </h1>
           <p className="text-lg text-white/70 max-w-md mx-auto animate-slide-up">
-            We encountered an unexpected error. Don't worry, we're on it!
+            We encountered an unexpected error. Don&apos;t worry, we&apos;re on it!
           </p>
           {error.message && (
             <div className="mt-6 p-4 rounded-xl bg-red-500/5 border border-red-500/20 backdrop-blur-sm">

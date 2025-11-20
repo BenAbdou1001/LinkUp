@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
 
 export default function NotFound() {
   return (
@@ -28,7 +27,7 @@ export default function NotFound() {
             Page Not Found
           </h2>
           <p className="text-lg text-white/70 max-w-md mx-auto">
-            Oops! The page you're looking for seems to have wandered off into the digital void.
+            Oops! The page you&apos;re looking for seems to have wandered off into the digital void.
           </p>
         </div>
 
